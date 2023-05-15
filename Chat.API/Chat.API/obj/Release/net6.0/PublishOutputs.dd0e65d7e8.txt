@@ -1,0 +1,17 @@
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Chat.API.exe
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\appsettings.json
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Chat.API.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Chat.API.deps.json
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Chat.API.runtimeconfig.json
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Chat.API.pdb
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\OpenAI.GPT3.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\RestSharp.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\System.Text.Encodings.Web.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\System.Text.Json.dll
+E:\chat\Chat.API\Chat.API\obj\Release\net6.0\PubTmp\Out\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

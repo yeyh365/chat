@@ -6,10 +6,12 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-}
+  name: "App",
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style>
@@ -19,6 +21,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 } */
+* {
+  padding: 0;
+  margin: 0;
+}
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+}
 </style>

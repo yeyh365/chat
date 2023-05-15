@@ -10,7 +10,7 @@ utils.subText = function (text) {
 }
 // 中英文混合字符串截取
 utils.subStrText = function (str, n) {
-    const r = /[^\x00-\xff]/g
+    const r = "/[^\x00-\xff]/g"
     if (str.replace(r, 'mm').length <= n) {
         return str
     }

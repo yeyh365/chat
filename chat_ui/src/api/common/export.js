@@ -1,9 +1,9 @@
 import axios from 'axios'
-import store from '@/store/index.js'
+// import store from '@/store/index.js'
 import router from '../../router'
-import {
-    getToken
-} from '@/api/common/auth'
+// import {
+//     getToken
+// } from '@/api/common/auth'
 // 引入nprogress
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css' // 这个样式必须引入
@@ -20,9 +20,9 @@ axiosInstance.interceptors.request.use(
         NProgress.start()
         // showFullScreenLoading()
         // 请求头添加token
-        if (store.getters.token) {
-            config.headers['Authorization'] = 'Bearer ' + getToken()
-        }
+        // if (store.getters.token) {
+        //     config.headers['Authorization'] = 'Bearer ' + getToken()
+        // }
         // const token = sessionStorage.getItem('userToken')
         // if (token) {
         //   config.headers.Authorization = 'Bearer ' + token
