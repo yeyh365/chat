@@ -52,12 +52,21 @@ namespace Chat.Domain.Entities
         /// </summary>
         [Column("name")]
         public string? Name { get; set; } = string.Empty;
-
+        /// <summary>
+        /// 手机
+        /// </summary>
+        [Column("password")]
+        public string? Password { get; set; } = string.Empty;
         /// <summary>
         /// 手机
         /// </summary>
         [Column("phone")]
         public string? Phone { get; set; } = string.Empty;
+        /// <summary>
+        /// 发送者
+        /// </summary>
+        [Column("photo")]
+        public string? Photo { get; set; } = string.Empty;
 
         /// <summary>
         /// 地址

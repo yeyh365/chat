@@ -9,7 +9,7 @@ using Chat.EntityFrameworkCore.Redis;
 
 namespace Chat.API.Controllers
 {
-    [ApiController]
+    //[ApiController]
     [Route("api/[controller]")]
     public class APublicController : ControllerBase
     {

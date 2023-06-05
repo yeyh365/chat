@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (1).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (1).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (10).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (10).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (11).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (11).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (12).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (12).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (2).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (2).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (3).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (3).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (4).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (4).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (5).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (5).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (6).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (6).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (7).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (7).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (8).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (8).jpg"
+    },
+    {
+      "Id": "E:\\chat\\Chat.API\\Chat.API\\wwwroot\\Photo\\OIP-C (9).jpg",
+      "PackagePath": "staticwebassets\\Photo\\OIP-C (9).jpg"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.Chat.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.Chat.API.props",
+      "PackagePath": "build\\Chat.API.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Chat.API.props",
+      "PackagePath": "buildMultiTargeting\\Chat.API.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildTransitive.Chat.API.props",
+      "PackagePath": "buildTransitive\\Chat.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -15,6 +15,7 @@ Vue.config.productionTip = false
 // } from 'vant'
 // Vue.use(Icon).use(Tabbar).use(TabbarItem).use(Col).use(Row).use(Search).use(Toast)
 import vant from 'vant'
+
 Vue.use(vant)
 import 'vant/lib/index.css';
 new Vue({

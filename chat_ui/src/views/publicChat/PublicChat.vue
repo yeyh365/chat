@@ -1,46 +1,27 @@
 <template>
   <div class="wrap">
-    <!-- <div class="title">
-      <div>
-        <van-icon
-          name="arrow-left"
-          size="20"
-          style="margin-left: 10px"
-          @click="onClickLeft"
-        />
-      </div>
-      <div>公共频道</div>
-      <div>
-        <van-icon
-          name="ellipsis"
-          size="22"
-          style="margin-right: 10px"
-          @click="onClickRight"
-        />
-      </div>
-    </div> -->
     <div
       class="content_box"
       id="box"
       ref="scrollBox"
       :style="{ height: contentHeight + 'px' }"
     >
-      <div class="timer">2022-08-02 11:08:07</div>
+      <div class="timer">{{ dateTime }}</div>
       <div
-        :class="item.position == 'left' ? 'userbox2' : 'userbox'"
+        :class="item.sender != userName ? 'userbox2' : 'userbox'"
         v-for="(item, index) in chatList"
         :key="index"
       >
-        <div :class="item.position == 'left' ? 'nameInfo2' : 'nameInfo'">
-          <div style="font-size: 14px">{{ item.username }}</div>
+        <div :class="item.sender != userName ? 'nameInfo2' : 'nameInfo'">
+          <div style="font-size: 14px">{{ item.sender }}</div>
           <div
-            :class="item.position == 'left' ? 'contentText2' : 'contentText'"
+            :class="item.sender != userName ? 'contentText2' : 'contentText'"
           >
             {{ item.content }}
           </div>
         </div>
         <div>
-          <van-image round width="50px" height="50px" :src="item.url" />
+          <van-image round width="50px" height="50px" :src="url + item.photo" />
         </div>
       </div>
     </div>
@@ -54,7 +35,7 @@
         rows="1"
       >
         <template #button>
-          <van-button size="small" type="primary" @click="sendOut"
+          <van-button size="small" type="primary" @click="handle"
             >发送</van-button
           >
         </template>
@@ -64,131 +45,190 @@
 </template>
 
 <script>
+import * as signalR from "@microsoft/signalr";
+import { Toast } from "vant";
 export default {
   name: "PublicChat",
   data() {
     return {
+      Search: {
+        Limit: 0,
+        Page: 20,
+      },
+      userName: "",
+      Pwd: "111",
+      Photo: "",
+      remsg: ["test", "test3"],
+      message: "test1登录了",
+      onlineUser: ["testUser"],
+      clientId: "",
+      connection: null,
+      url: process.env.VUE_APP_BASE_URL,
+      wssUrl: process.env.VUE_APP_BASE_URL + "chatHub",
       //聊天数据
-      chatList: [
+      chatList: [],
+      OldchatList: [
         {
           url: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
           username: "张三",
           content: "模拟数据123模拟数据123模拟数据123模拟数据123",
           position: "left",
         },
-        {
-          url: "https://img01.yzcdn.cn/vant/cat.jpeg",
-          username: "李四",
-          content: "模拟数据123模拟数据123模拟数据123模拟数据123模拟数据123",
-          position: "right",
-        },
-        {
-          url: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-          username: "张三",
-          content: "模拟数据123",
-          position: "left",
-        },
-        {
-          url: "https://img01.yzcdn.cn/vant/cat.jpeg",
-          username: "李四",
-          content: "模拟数据123模拟数据",
-          position: "right",
-        },
-        {
-          url: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-          username: "张三",
-          content: "模拟数据123",
-          position: "left",
-        },
-        {
-          url: "https://img01.yzcdn.cn/vant/cat.jpeg",
-          username: "李四",
-          content: "模拟数据123模拟数据",
-          position: "right",
-        },
-        {
-          url: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-          username: "张三",
-          content: "模拟数据123",
-          position: "left",
-        },
-        {
-          url: "https://img01.yzcdn.cn/vant/cat.jpeg",
-          username: "李四",
-          content: "模拟数据123模拟数据",
-          position: "right",
-        },
-        {
-          url: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-          username: "张三",
-          content: "模拟数据123",
-          position: "left",
-        },
-        {
-          url: "https://img01.yzcdn.cn/vant/cat.jpeg",
-          username: "李四",
-          content: "模拟数据123模拟数据",
-          position: "right",
-        },
-        {
-          url: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-          username: "张三",
-          content: "模拟数据123",
-          position: "left",
-        },
-        {
-          url: "https://img01.yzcdn.cn/vant/cat.jpeg",
-          username: "李四",
-          content: "模拟数据123模拟数据",
-          position: "right",
-        },
-        {
-          url: "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-          username: "张三",
-          content: "模拟数据123",
-          position: "left",
-        },
-        {
-          url: "https://img01.yzcdn.cn/vant/cat.jpeg",
-          username: "李四",
-          content: "模拟数据123模拟数据",
-          position: "right",
-        },
       ],
-      //用户名
-      userName: "张三",
+      //登录的用户名
       //输入内容
       inputValue: "",
       //滚动条距离顶部距离
       scrollTop: 0,
       contentHeight: "0px",
+      dateTime: new Date().toISOString(),
     };
   },
+
   created() {
+    this.getName()
     this.contentHeight = window.innerHeight - 95;
+    // this.login();
+    // this.GetNameListData();
   },
   mounted() {
-    this.setPageScrollTo();
+    setTimeout(() => {
+      this.login();
+    }, 200);
+
     //创建监听内容部分滚动条滚动
     this.$refs.scrollBox.addEventListener("scroll", this.srTop);
+
+    // this.$nextTick(() => {
+    //   this.setPageScrollTo();
+    // });
+  },
+  updated() {
+    if (this.inputValue == "") {
+      this.$nextTick(() => {
+        this.setPageScrollTo();
+      });
+    }
   },
   methods: {
-    //返回
-    onClickLeft() {
-      console.log("返回");
+    login() {
+      var chat = this;
+      this.connection = new signalR.HubConnectionBuilder()
+        .withUrl(this.wssUrl, {
+          accessTokenFactory: () => {
+            return "aaaaaaaa"; // 获取 JWT发送token
+          },
+        })
+        // .withAutomaticReconnect() //断线自动重连
+        // .configureReconnectBehavior((reconnectOptions) => {
+        //   reconnectOptions.userProvidedAccessToken = "111111"; // 设置自定义的访问令牌
+        //   reconnectOptions.retryDelays = [1000, 3000, 5000]; // 设置重新连接的延迟时间
+        // })
+        .build();
+      this.connection
+        .start()
+        .then(() => {
+          this.connection
+            .invoke("Login", this.userName, this.Pwd, this.Photo)
+            .catch(function (err) {
+              return console.error(err.toString());
+            });
+          this.connection.on("SendMessageResponse", function (res) {
+            if (res && res.status == 0) {
+              console.log("SendMessageResponse", res);
+              chat.remsg.push(res.message);
+              chat.chatList = res.data.data.reverse();
+              console.log("1111", chat.chatList);
+              chat.inputValue = "";
+              // var li = document.createElement("li");
+              // li.textContent = res.message;
+              // document.getElementById("messagesList").appendChild(li);
+            } else {
+                      Toast(res.message);
+            }
+          });
+          //---消息---
+          this.connection.on("LoginResponse", function (res) {
+            if (res && res.status == 0) {
+              // sessionStorage.setItem("curuser", res.data);
+              Toast(res.message);
+              chat.connection
+                .invoke("SendMessage", chat.userName, chat.inputValue)
+                .catch(function (err) {
+                  return console.error(err.toString());
+                });
+            } else {
+              alert("登录失败！");
+            }
+          });
+          this.connection.on("GetUsersResponse", (res) => {
+            if (res && res.status == 0) {
+              console.log("GetUsersResponse", res);
+              this.remsg.push(res.data.userName + "离开了");
+              if (this.onlineUser.indexOf(res.data.userName)) {
+                this.onlineUser.splice(
+                  this.onlineUser.indexOf(res.data.userName),
+                  1
+                );
+              }
+              console.log("onlineUser", res);
+              console.log(this.onlineUser);
+            }
+          });
+        })
+        .catch((error) => {
+          console.log("连接失败", error);
+        });
+
+      //自动重连成功后的处理
+      this.connection.onreconnected((connectionId) => {
+        alert(connectionId);
+      });
+      // console.log("logon");
+      // setTimeout(() => {
+
+      // }, 1000);
+      this.connection.onclose((error) => {
+        // 连接断开时的处理
+        if (error) {
+          alert("连接断开，错误信息:", error);
+        } else {
+          alert("连接失败");
+        }
+      });
     },
-    //更多
-    onClickRight() {
-      console.log("按钮");
+    handle() {
+      if (this.inputValue == null || this.inputValue == "") {
+        return this.$toast("输入为空");
+      }
+      this.connection
+        .invoke("SendMessage", this.userName, this.inputValue)
+        .catch(function (err) {
+          return console.error(err.toString());
+        });
     },
+    //获取在线用户
+    getUsers() {
+      this.connection.invoke("GetUsers").catch(function (err) {
+        return console.error(err.toString());
+      });
+    },
+    // //返回
+    // onClickLeft() {
+    //   console.log("返回");
+    // },
+    // //更多
+    // onClickRight() {
+    //   console.log("按钮");
+    // },
     //滚动条默认滚动到最底部
     setPageScrollTo() {
       //获取中间内容盒子的可见区域高度
-      this.scrollTop = document.querySelector("#box").offsetHeight;
+      this.scrollTop = document.querySelector("#box").scrollHeight;
       setTimeout(() => {
         //加个定时器，防止上面高度没获取到，再获取一遍。
-        if (this.scrollTop != this.$refs.scrollBox.offsetHeight) {
-          this.scrollTop = document.querySelector("#box").offsetHeight;
+        if (this.scrollTop != this.$refs.scrollBox.scrollHeight) {
+          this.scrollTop = document.querySelector("#box").scrollHeight;
         }
       }, 100);
       //scrollTop：滚动条距离顶部的距离。
@@ -212,13 +252,22 @@ export default {
     sendOut() {
       console.log("发送成功");
     },
+    getName(){
+      const getName=sessionStorage.getItem('name');
+        const getPhoto=sessionStorage.getItem('photo');
+              const getToken=sessionStorage.getItem('token');    
+      if(getName!=""&&getPhoto!=""&&getToken!=""){
+        this.userName= getName
+                this.Photo= getPhoto
+      }
+    }
+
   },
 };
 </script>
 
 <style scoped>
 .wrap {
-  height: 100%;
   width: 100%;
   position: relative;
 }
@@ -235,7 +284,7 @@ export default {
   这里padding：10px造成的上下够加了10，把盒子撑大了，所以一共是20要减掉
   然后不知道是边框还是组件的原因，导致多出了一些，这里再减去5px刚好。不然会出现滚动条到顶或者底部的时候再滚动的话就会报一个错，或者出现滚动条变长一下的bug
   */
-  /* height: calc(100% - 115px); */
+  height: calc(100% - 135px);
   overflow: auto;
   padding: 10px;
 }

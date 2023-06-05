@@ -1,6 +1,6 @@
 <template>
   <div>
-    <frame-component />
+    <Frame-component />
     <div class="index">
       <router-view></router-view>
     </div>
@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 .index {
-  margin-top: 40px;
+  padding-top: 40px;
+  position: relative;
 }
 </style>

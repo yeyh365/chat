@@ -1,0 +1,12 @@
+E:\chat\Chat.API\Chat.Core\bin\Release\net6.0\Chat.Core.deps.json
+E:\chat\Chat.API\Chat.Core\bin\Release\net6.0\Chat.Core.dll
+E:\chat\Chat.API\Chat.Core\bin\Release\net6.0\Chat.Core.pdb
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\Chat.Core.csproj.AssemblyReference.cache
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\Chat.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\Chat.Core.AssemblyInfoInputs.cache
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\Chat.Core.AssemblyInfo.cs
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\Chat.Core.csproj.CoreCompileInputs.cache
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\Chat.Core.dll
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\refint\Chat.Core.dll
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\Chat.Core.pdb
+E:\chat\Chat.API\Chat.Core\obj\Release\net6.0\ref\Chat.Core.dll

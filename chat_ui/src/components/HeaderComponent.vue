@@ -80,7 +80,7 @@
           to="/aboutWeb"
         />
       </div>
-      <div class="funList">
+      <!-- <div class="funList">
         <van-button
           type="default"
           block
@@ -88,7 +88,7 @@
           v-show="userLoginStatus"
           >退 出 登 录</van-button
         >
-      </div>
+      </div> -->
       <van-tabbar
         v-model="active"
         active-color="#4690E5"
@@ -103,12 +103,12 @@
         <van-tabbar-item name="tv-o" icon="tv-o" to="/OpenAI"
           >OPANAI</van-tabbar-item
         >
-        <!-- <van-tabbar-item name="bulb-o" icon="bulb-o" to="/find"
-          >发现</van-tabbar-item
+        <van-tabbar-item name="bulb-o" icon="bulb-o" to="/MapGaud"
+          >地图</van-tabbar-item
         >
-        <van-tabbar-item name="shop-o" icon="shop-o" to="/store"
+       <van-tabbar-item name="shop-o" icon="shop-o" to="/StoreHome"
           >会员模式</van-tabbar-item
-        > -->
+        > 
         <van-tabbar-item name="friends-o" icon="friends-o" to="/me"
           >我的</van-tabbar-item
         >
@@ -187,11 +187,11 @@ export default {
 }
 .prop {
   height: 100%;
-  width: 60%;
+  width: 70%;
 }
 span {
   font-size: 13px;
-  color: rosybrown;
+  /* color: rosybrown; */
 }
 van-tabbar-item {
   float: left;

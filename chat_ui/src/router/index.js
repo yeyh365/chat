@@ -28,12 +28,12 @@ const routes = [{
                 component: () => import('../views/openAI/OpenAI.vue')
             },
             {
-                path: '/find',
+                path: '/MapGaud',
                 name: '发现',
-                component: () => import('../views/findviews/FindHome.vue')
+                component: () => import('../views/mapGaud/MapGaud.vue')
             },
             {
-                path: '/store',
+                path: '/StoreHome',
                 name: '商城',
                 component: () => import('../views/storeviews/StoreHome.vue')
             },
@@ -48,7 +48,15 @@ const routes = [{
                 component: () => import("@/views/AboutWeb.vue")
             },
         ]
-    },
+    }, {
+        path: '/Login',
+        name: 'Login',
+        component: () => import('../views/Login.vue'),
+    }, {
+        path: '/Register',
+        name: 'Register',
+        component: () => import('../views/Register.vue'),
+    }
 
 ]
 
@@ -57,4 +65,20 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes
 })
+router.beforeEach((to, from, next) => {
+    if(to.path=="/Login"){
+        next()
+    }else{
+        const hasToken = sessionStorage.getItem('token')
+        if (hasToken === null || hasToken === "") {     
+            next("/Login");  
+        } else {      
+            next();    
+        }  
+  }})
+  
+  // 全局后置路由守卫———— 初始化的时候被调用、 每次路由切换之后被调用
+  router.afterEach((to, from) => {
+    document.title =  'CHAT系统'
+  })
 export default router

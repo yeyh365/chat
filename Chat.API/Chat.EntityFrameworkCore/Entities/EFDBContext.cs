@@ -33,8 +33,10 @@ namespace Chat.EntityFrameworkCore.Entities
         //用户
         public DbSet<User> User { get; set; }
         //字典表
-   
          public DbSet<Dictionary> Dictionary { get; set; }
+        public DbSet<ChatMes> ChatMes { get; set; }
+        //在线用户和分组信息
+        public DbSet<OnlineUser> OnlineUser { get; set; }
         #endregion
 
         public IDBTransaction BeginTrainsaction()

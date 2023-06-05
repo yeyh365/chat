@@ -1,0 +1,15 @@
+E:\chat\Chat.API\Chat.Domain\bin\Release\net6.0\Chat.Domain.deps.json
+E:\chat\Chat.API\Chat.Domain\bin\Release\net6.0\Chat.Domain.dll
+E:\chat\Chat.API\Chat.Domain\bin\Release\net6.0\Chat.Domain.pdb
+E:\chat\Chat.API\Chat.Domain\bin\Release\net6.0\Chat.Core.dll
+E:\chat\Chat.API\Chat.Domain\bin\Release\net6.0\Chat.Core.pdb
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\Chat.Domain.csproj.AssemblyReference.cache
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\Chat.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\Chat.Domain.AssemblyInfoInputs.cache
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\Chat.Domain.AssemblyInfo.cs
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\Chat.Domain.csproj.CoreCompileInputs.cache
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\Chat.Domain.csproj.CopyComplete
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\Chat.Domain.dll
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\refint\Chat.Domain.dll
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\Chat.Domain.pdb
+E:\chat\Chat.API\Chat.Domain\obj\Release\net6.0\ref\Chat.Domain.dll
